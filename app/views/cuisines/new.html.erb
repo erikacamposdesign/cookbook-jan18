@@ -1,0 +1,13 @@
+<h1>Cadastrar uma cozinha</h1>
+
+<% if flash[:notice] %>
+  <h1> <%= flash[:notice] %> </h1>
+<% end %>
+
+<%= form_for(@cuisine) do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>

@@ -1,8 +1,7 @@
-<% if @cuisine.recipes.length <= 0 %>
+<h1><%= @cuisine.name %></h1>
+<% if @cuisine.recipes.empty? %>
   Nenhuma receita encontrada para este tipo de cozinha
 <% else %>
-  <h1><%= @cuisine.name %></h1>
-
   <% @cuisine.recipes.each do |c| %>
   <h1><%= c.title %></h1>
   <ul>
