@@ -12,7 +12,7 @@ feature 'Visitor visit homepage' do
     #cria os dados necessários
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
-                          cuisine: cuisine, difficulty: 'Médio',
+                          cuisine: cuisine, difficulty: 'Médio', 
                           cook_time: 60)
 
     # simula a ação do usuário
