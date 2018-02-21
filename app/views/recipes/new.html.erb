@@ -1,5 +1,9 @@
 <h1>Cadastrar uma receita</h1>
 
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <%= form_for(@recipe) do |f| %>
   <div>
     <%= f.label :title, 'Título' %>
@@ -11,7 +15,7 @@
   </div>
   <div>
     <%= f.label :cuisine_id, 'Cozinha' %>
-    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name %>
+    <%= f.collection_select :cuisine_id, @cuisines, :id, :name %>
   </div>
   <div>
     <%= f.label :difficulty, 'Dificuldade' %>

@@ -6,13 +6,17 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @cuisines = Cuisine.all
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-
-    redirect_to recipe_path(@recipe.id)
+    if @recipe.save
+      redirect_to recipe_path(@recipe.id)
+    else
+      flash[:notice] = 'Você deve informar todos os dados da receita'
+      render :new
+    end
   end
 
   private
