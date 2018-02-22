@@ -5,7 +5,7 @@
   <% @cuisine.recipes.each do |c| %>
   <h1><%= c.title %></h1>
   <ul>
-    <li><%= c.recipe_type %></li>
+    <li><%= c.recipe_type.name %></li>
     <li><%= c.cuisine.name %></li>
     <li><%= c.difficulty %></li>
     <li><%= c.cook_time %> minutos</li>
