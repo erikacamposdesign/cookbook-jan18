@@ -16,3 +16,7 @@
 <% @cuisines.each do |c| %>
   <h1><%= link_to c.name, cuisine_path(c.id) %></h1>
 <% end %>
+
+<% @recipe_types.each do |r| %>
+  <h1><%= link_to r.name, recipe_type_path(r.id) %></h1>
+<% end %>
