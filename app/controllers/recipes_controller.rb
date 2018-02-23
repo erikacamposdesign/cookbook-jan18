@@ -1,15 +1,4 @@
 class RecipesController < ApplicationController
-  def show
-    id = params[:id]
-    @recipe = Recipe.find(id)
-  end
-
-  def new
-    @recipe = Recipe.new
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
-  end
-
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
@@ -20,6 +9,34 @@ class RecipesController < ApplicationController
       flash[:notice] = 'Você deve informar todos os dados da receita'
       render :new
     end
+  end
+
+  def edit
+    id = params[:id]
+    @recipe = Recipe.find(id)
+    @cuisines = Cuisine.all
+    @recipe_types = RecipeType.all
+  end
+
+  def new
+    @recipe = Recipe.new
+    @cuisines = Cuisine.all
+    @recipe_types = RecipeType.all
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update recipe_params
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    id = params[:id]
+    @recipe = Recipe.find(id)
   end
 
   private
