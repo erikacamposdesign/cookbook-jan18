@@ -1,0 +1,9 @@
+<%= flash[:notice] %>
+
+<%= form_for @recipe_type do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>
