@@ -1,7 +1,7 @@
 <h1>Cadastrar uma cozinha</h1>
 
-<% if flash[:notice] %>
-  <h1> <%= flash[:notice] %> </h1>
+<%= @cuisine.errors.full_messages.each do |message| %>
+  <%= message %>
 <% end %>
 
 <%= form_for(@cuisine) do |f| %>
