@@ -37,4 +37,21 @@ feature 'User edit recipe' do
     expect(page).to have_css('p', text: 'Penne e manjericão')
     expect(page).to have_css('p', text: 'Cozinhe o penne e misture o manjericão')
   end
+
+  scenario 'and does not allow saving with invalid data' do
+    cuisine = Cuisine.create(name: 'Alema')
+    recipe_type = RecipeType.create(name: 'Entrada')
+    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+                          cuisine: cuisine, difficulty: 'Médio',
+                          cook_time: 60,
+                          ingredients: 'Farinha, açucar, cenoura',
+                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+
+    visit edit_recipe_path(recipe)
+
+    fill_in 'Título', with: ''
+    click_on 'Enviar'
+
+    expect(page).to have_content('Você deve informar todos os dados da receita')
+  end
 end

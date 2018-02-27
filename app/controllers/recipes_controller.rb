@@ -26,10 +26,13 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    @cuisines = Cuisine.all
+    @recipe_types = RecipeType.all
 
     if @recipe.update recipe_params
       redirect_to @recipe
     else
+      flash[:notice] = 'Você deve informar todos os dados da receita'
       render 'edit'
     end
   end
