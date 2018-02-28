@@ -12,3 +12,6 @@
 <%= link_to 'Voltar', root_path %>
 <p>
 <%= link_to 'Editar', edit_recipe_path %>
+<p>
+<%= link_to 'Excluir receita', recipe_path(@recipe),
+              method: :delete %>

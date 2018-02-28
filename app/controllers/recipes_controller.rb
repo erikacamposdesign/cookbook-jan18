@@ -11,6 +11,13 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    id = params[:id]
+    recipe = Recipe.find(id)
+    recipe.delete
+    redirect_to root_path
+  end
+
   def edit
     id = params[:id]
     @recipe = Recipe.find(id)
@@ -33,13 +40,18 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       flash[:notice] = 'Você deve informar todos os dados da receita'
-      render 'edit'
+      render :edit
     end
   end
 
   def show
-    id = params[:id]
-    @recipe = Recipe.find(id)
+    @recipe = Recipe.find_by id: params[:id]
+
+    unless @recipe
+      flash[:notice] = 'Esta receita não existe'
+
+      redirect_to root_path
+    end
   end
 
   private
