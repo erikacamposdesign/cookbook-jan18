@@ -1,9 +1,3 @@
-<%= flash[:notice] %>
+<h1>Cadastra Tipo de Receita</h1>
 
-<%= form_for @recipe_type do |f| %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<%= render 'form' %>

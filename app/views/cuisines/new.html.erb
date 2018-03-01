@@ -1,7 +1,5 @@
 <h1>Cadastrar uma cozinha</h1>
 
-<%= @cuisine.errors.full_messages.each do |message| %>
-  <%= message %>
-<% end %>
+<%= render partial: 'shared/model_errors', locals: { model: @cuisine } %>
 
 <%= render 'form' %>
