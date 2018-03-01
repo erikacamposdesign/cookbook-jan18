@@ -1,4 +1,8 @@
 <h1><%= @cuisine.name %></h1>
+<div>
+  <%= link_to 'Editar Cozinha', edit_cuisine_path %>
+</div>
+
 <% if @cuisine.recipes.empty? %>
   Nenhuma receita encontrada para este tipo de cozinha
 <% else %>

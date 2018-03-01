@@ -4,10 +4,4 @@
   <%= message %>
 <% end %>
 
-<%= form_for(@cuisine) do |f| %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<%= render 'form' %>
