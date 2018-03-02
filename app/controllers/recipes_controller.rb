@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def create
+    # @recipe.user = current_user
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to recipe_path(@recipe.id)
