@@ -31,6 +31,11 @@ class RecipesController < ApplicationController
     @recipe_types = RecipeType.all
   end
 
+  def search
+    @search = params[:q]
+    @recipes = Recipe.where("title LIKE ?", %@search%)
+  end
+
   def update
     @recipe = Recipe.find(params[:id])
     @cuisines = Cuisine.all
